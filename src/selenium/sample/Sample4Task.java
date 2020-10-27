@@ -18,8 +18,8 @@ public class Sample4Task {
     @Before
     public void startingTests() throws Exception {
         // from Sample 1:
-        String libWithDriversLocation = System.getProperty("user.dir") + "\\lib\\";
-        System.setProperty("webdriver.chrome.driver", libWithDriversLocation + "chromedriver.exe");
+        String libWithDriversLocation = System.getProperty("user.dir") + "/lib/";
+        System.setProperty("webdriver.chrome.driver", libWithDriversLocation + "chromedriver");
         // declaration above:
         driver = new ChromeDriver();
         //open page:
@@ -35,6 +35,8 @@ public class Sample4Task {
     @Test
     public void enterNumber() throws Exception {
 //         TODO:
+
+
 //        enter a number under "Number"
 //        check that button is not clickable "Clear Result"
 //        check that text is not displayed
