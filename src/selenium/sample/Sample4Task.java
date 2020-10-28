@@ -46,6 +46,30 @@ public class Sample4Task {
 //        check that the button "Clear Result" is clickable now
 //        click on "Clear Result"
 //        check that the text is still (""), but it is not displayed
+
+        WebElement number = driver.findElement(By.id("number"));
+        number.sendKeys("7");
+
+        WebElement clearResultButton = driver.findElement(By.id("clear_result_button_number"));
+        assertFalse(clearResultButton.isEnabled());
+
+        WebElement resultNumber = driver.findElement(By.id("result_number"));
+        assertFalse(resultNumber.isDisplayed());
+
+        WebElement resultButton = driver.findElement(By.id("result_button_number"));
+        resultButton.click();
+
+        assertTrue(resultNumber.isEnabled());
+
+        assertTrue(resultNumber.getText().contains("75"));
+
+        assertTrue(clearResultButton.isEnabled());
+
+        clearResultButton.click();
+
+        assertTrue(resultNumber.getText().contains(""));
+        assertFalse(resultNumber.isDisplayed());
+
     }
 
     @Test
@@ -55,5 +79,12 @@ public class Sample4Task {
 //        click on "This is a link to Homepage"
 //        check that current url is not base_url
 //        verify that current url is homepage
+
+
+        assertEquals(base_url, driver.getCurrentUrl());
+        driver.findElement(By.id("homepage_link")).click();
+        assertFalse(driver.getCurrentUrl().equals(base_url));
+        assertEquals("https://kristinek.github.io/site/", driver.getCurrentUrl());
     }
-}
+    }
+
